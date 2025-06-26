@@ -1,0 +1,27 @@
+# endpoints.yml
+
+# Enable this if you're running custom actions
+action_endpoint:
+  url: "http://localhost:5055/webhook"
+
+# Optional: Add tracker store (like Redis or MongoDB) for production-level conversation persistence.
+# tracker_store:
+#   type: redis
+#   url: localhost
+#   port: 6379
+#   db: 0
+#   password: null
+#   use_ssl: false
+
+# Optional: for event streaming to RabbitMQ or Kafka
+# event_broker:
+#   type: pika
+#   url: localhost
+#   username: guest
+#   password: guest
+#   queue: rasa_events
+
+# Optional: to fetch models from a remote model server
+# models:
+#   url: http://localhost:8000/models
+#   wait_time_between_pulls: 60

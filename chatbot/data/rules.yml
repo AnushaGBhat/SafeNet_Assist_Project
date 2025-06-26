@@ -1,0 +1,58 @@
+version: "3.1"
+
+rules:
+
+- rule: Greet the user
+  steps:
+    - intent: greet
+    - action: utter_greet
+
+- rule: Respond to phishing query
+  steps:
+    - intent: phishing_help
+    - action: utter_phishing_help
+
+- rule: Respond to OTP fraud
+  steps:
+    - intent: otp_fraud
+    - action: utter_otp_fraud
+
+- rule: Respond to account hacked
+  steps:
+    - intent: social_media_hack
+    - action: utter_social_media_hack
+
+- rule: Respond to cyberbullying
+  steps:
+    - intent: cyber_bullying
+    - action: utter_cyber_bullying
+
+- rule: Respond to report fraud
+  steps:
+    - intent: report_fraud
+    - action: utter_report_fraud
+
+- rule: Respond to file upload info
+  steps:
+    - intent: upload_info
+    - action: utter_upload_info
+
+- rule: Say thanks
+  steps:
+    - intent: say_thanks
+    - action: utter_say_thanks
+
+- rule: Say goodbye
+  steps:
+    - intent: goodbye
+    - action: utter_goodbye
+
+- rule: Ask for help
+  steps:
+    - intent: ask_help
+    - action: utter_ask_help
+
+- rule: Complaint status check
+  steps:
+    - intent: ask_complaint_status
+    - action: utter_ask_complaint_status

@@ -1,0 +1,98 @@
+version: "3.1"
+
+stories:
+
+- story: greeting user
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- story: user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: user needs help
+  steps:
+  - intent: ask_help
+  - action: utter_ask_help
+
+- story: user asks procedure to report cybercrime
+  steps:
+  - intent: ask_procedure
+  - action: utter_ask_procedure
+
+- story: user wants to report fraud
+  steps:
+  - intent: report_fraud
+  - action: utter_report_fraud
+
+- story: user asks about phishing
+  steps:
+  - intent: phishing_help
+  - action: utter_phishing_help
+
+- story: user wants to upload info
+  steps:
+  - intent: upload_info
+  - action: utter_upload_info
+
+- story: user forgets password
+  steps:
+  - intent: forgot_password
+  - action: utter_forgot_password
+
+- story: user receives suspicious link
+  steps:
+  - intent: suspicious_link
+  - action: utter_suspicious_link
+
+- story: user gets scam call
+  steps:
+  - intent: scam_call
+  - action: utter_scam_call
+
+- story: user reports financial fraud
+  steps:
+  - intent: financial_fraud
+  - action: utter_financial_fraud
+
+- story: user reports social media hack
+  steps:
+  - intent: social_media_hack
+  - action: utter_social_media_hack
+
+- story: user reports online harassment
+  steps:
+  - intent: harassment
+  - action: utter_harassment
+
+- story: user reports cyberbullying
+  steps:
+  - intent: cyber_bullying
+  - action: utter_cyber_bullying
+
+- story: user reports OTP fraud
+  steps:
+  - intent: otp_fraud
+  - action: utter_otp_fraud
+
+- story: user needs counseling
+  steps:
+  - intent: need_counselling
+  - action: utter_need_counselling
+
+- story: user asks explanation
+  steps:
+  - intent: explain_terms
+  - action: utter_explain_terms
+
+- story: user asks complaint status
+  steps:
+  - intent: ask_complaint_status
+  - action: utter_ask_complaint_status
+
+- story: user thanks the bot
+  steps:
+  - intent: say_thanks
+  - action: utter_say_thanks

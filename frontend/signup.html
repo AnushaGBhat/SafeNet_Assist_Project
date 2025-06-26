@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SafeNet Assist – Signup</title>
+  <link rel="stylesheet" href="auth.css" />
+</head>
+<body class="auth-dark">
+  <div class="auth-container">
+    <div class="auth-box">
+      <h1>🛡️ SafeNet Assist</h1>
+      <h2>Create Account</h2>
+
+      <form id="signup-form">
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <input type="password" id="confirm-password" placeholder="Confirm Password" required />
+        <button type="submit">Sign Up</button>
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("signup-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirm-password").value;
+
+      if (password !== confirmPassword) {
+        alert("❌ Passwords do not match!");
+        return;
+      }
+
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+      const alreadyExists = users.find(user => user.email === email);
+
+      if (alreadyExists) {
+        alert("⚠️ Email already registered. Please login.");
+        return;
+      }
+
+      const newUser = { email, password };
+      users.push(newUser);
+      localStorage.setItem("users", JSON.stringify(users));
+
+      alert("✅ Signup successful! Please login to continue.");
+      window.location.href = "login.html";
+    });
+  </script>
+</body>
+</html>

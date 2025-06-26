@@ -1,0 +1,96 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - ask_help
+  - ask_procedure
+  - report_fraud
+  - phishing_help
+  - upload_info
+  - general_query
+  - forgot_password
+  - suspicious_link
+  - scam_call
+  - financial_fraud
+  - social_media_hack
+  - harassment
+  - need_counselling
+  - cyber_bullying
+  - otp_fraud
+  - explain_terms
+  - ask_complaint_status
+  - say_thanks
+  - deny
+
+responses:
+
+  utter_greet:
+    - text: "Hello! I'm SafeNet Assist. How can I support you today with a cybercrime issue?"
+    - text: "Hi there! How can I help you stay safe online today?"
+    - text: "Welcome! Let me know your concern and I’ll guide you."
+
+  utter_goodbye:
+    - text: "Take care and stay cyber-safe! I'm always here if you need help again."
+    - text: "Goodbye! Don’t hesitate to return if you face any online issues."
+
+  utter_ask_help:
+    - text: "Sure! You can ask me anything related to online fraud, phishing, scam calls, hacked accounts, and how to report them safely."
+
+  utter_ask_procedure:
+    - text: "To officially report a cybercrime in India, visit [cybercrime.gov.in](https://www.cybercrime.gov.in). Choose 'Report Other Cyber Crime' or 'Report Women/Child-related Crime'."
+
+  utter_report_fraud:
+    - text: "If you've been scammed online, stop all transactions immediately, change your passwords, and visit https://cybercrime.gov.in to file a complaint."
+
+  utter_phishing_help:
+    - text: "Phishing emails often look real. Never click unknown links or download attachments. Report it and update your passwords immediately."
+
+  utter_upload_info:
+    - text: "You can upload relevant screenshots, chat records, or transaction proofs. This helps explain your issue better."
+
+  utter_general_query:
+    - text: "I’m here to help! Could you explain your concern a bit more clearly?"
+
+  utter_forgot_password:
+    - text: "If you've forgotten your password for any service, use their 'Forgot Password' feature. Avoid using the same password across sites."
+
+  utter_suspicious_link:
+    - text: "Avoid clicking suspicious links. Do not share OTPs or login details. You can report phishing to the concerned platform or cyber portal."
+
+  utter_scam_call:
+    - text: "If you receive a scam call, don't share personal info. Note the number, block it, and report on cybercrime.gov.in or 1930 helpline."
+
+  utter_financial_fraud:
+    - text: "For unauthorized transactions, contact your bank immediately. Then file a complaint at https://cybercrime.gov.in."
+
+  utter_social_media_hack:
+    - text: "If your account is hacked, change your password immediately. Use 2FA. Then report it to the platform and cybercrime portal."
+
+  utter_harassment:
+    - text: "If you're facing online harassment, collect evidence and file a complaint through https://cybercrime.gov.in. You're not alone—we're here to guide you."
+
+  utter_cyber_bullying:
+    - text: "Cyberbullying is serious. Block the offender, report on the platform, and take screenshots. Legal help is available too."
+
+  utter_otp_fraud:
+    - text: "Never share OTPs with anyone, even if they claim to be from banks or government. Report immediately if you did."
+
+  utter_need_counselling:
+    - text: "It’s okay to feel overwhelmed. Cybercrime can be traumatic. You can speak to a counselor or helpline at 1930."
+
+  utter_explain_terms:
+    - text: "Ask me to explain anything—from phishing to financial fraud to malware—I’ll simplify it for you."
+
+  utter_ask_complaint_status:
+    - text: "You can track your cybercrime complaint status by visiting the 'Check Status' tab at https://www.cybercrime.gov.in."
+
+  utter_say_thanks:
+    - text: "You’re welcome! Always here to help you stay safe online. 😊"
+
+  utter_deny:
+    - text: "Alright, let me know whenever you're ready or if you need anything else."
+
+  utter_default:
+    - text: "I'm not sure I understand that yet. Could you rephrase or ask another question related to cybercrime?"
+

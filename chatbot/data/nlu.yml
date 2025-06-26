@@ -1,0 +1,92 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hello
+    - hi
+    - hey
+    - good morning
+    - good evening
+    - hey there
+    - hi bot
+
+- intent: phishing_help
+  examples: |
+    - I got an email asking for my bank details
+    - Someone sent me a suspicious link
+    - I think this is a phishing attempt
+    - Is this a phishing scam?
+    - Is this a fake link?
+    - How can I detect phishing?
+
+- intent: otp_fraud
+  examples: |
+    - I gave my OTP to someone and lost money
+    - I shared my OTP and was scammed
+    - Someone tricked me into giving OTP
+    - I entered my OTP on a fake website
+    - I got a call asking for OTP
+
+- intent: social_media_hack
+  examples: |
+    - My Instagram account got hacked
+    - I lost access to my Gmail
+    - My Facebook account was compromised
+    - Someone hacked my Twitter
+    - I can't log into my Snapchat
+
+- intent: cyber_bullying
+  examples: |
+    - I'm being harassed online
+    - Someone is bullying me on Instagram
+    - I'm getting threatening messages online
+    - People are spreading rumors about me
+    - I’m being abused in comments
+
+- intent: report_fraud
+  examples: |
+    - I want to report an online fraud
+    - How do I file a complaint about cybercrime?
+    - Where can I complain about an online scam?
+    - I was cheated online
+    - How do I report a cybercrime?
+
+- intent: upload_info
+  examples: |
+    - Can I upload evidence?
+    - Where do I upload documents?
+    - Can I attach screenshots or proofs?
+    - I have some files to submit
+    - I want to share images for proof
+
+- intent: say_thanks
+  examples: |
+    - Thanks
+    - Thank you so much
+    - Appreciate your help
+    - Thank you
+    - That's helpful
+
+- intent: goodbye
+  examples: |
+    - Bye
+    - See you
+    - Goodbye
+    - Catch you later
+    - Talk to you soon
+
+- intent: ask_procedure
+  examples: |
+    - What is the process to complain?
+    - How do I report a case?
+    - Tell me the procedure to report
+    - What steps should I follow to complain?
+
+- intent: need_counselling
+  examples: |
+    - I feel stressed due to cybercrime
+    - I need someone to talk to
+    - I feel anxious about what happened
+    - Is there any counseling support?
+

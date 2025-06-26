@@ -1,0 +1,40 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SafeNet Assist Chat</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body class="dark">
+  <div class="container">
+    <aside class="sidebar">
+      <div class="brand">🛡️ SafeNet Assist</div>
+      <button id="new-chat">+ New Chat</button>
+      <div id="chat-history" class="chat-history">
+        <!-- Dynamically added old chats -->
+      </div>
+    </aside>
+
+    <main class="chat-area">
+      <div id="chat-box" class="chat-box">
+        <!-- Chat messages will appear here -->
+      </div>
+
+      <form id="chat-form" class="chat-form">
+        <label for="file-upload" class="file-upload-label">📎</label>
+        <input type="file" id="file-upload" hidden />
+        <input
+          type="text"
+          id="user-input"
+          placeholder="Type a message..."
+          required
+        />
+        <button type="submit" id="send-btn">➤</button>
+      </form>
+    </main>
+  </div>
+</body>
+</html>
