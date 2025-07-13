@@ -56,3 +56,19 @@ rules:
   steps:
     - intent: ask_complaint_status
     - action: utter_ask_complaint_status
+  
+- rule: Respond to police call threat
+  steps:
+  - intent: fake_police_call
+  - action: utter_fake_police_call
+
+- rule: Respond to ‘why did they call’
+  steps:
+  - intent: ask_why_called
+  - action: utter_ask_why_called
+
+- rule: Comfort confused or scared users
+  steps:
+  - intent: confused_user
+  - action: utter_confused_user
+

@@ -22,6 +22,9 @@ intents:
   - ask_complaint_status
   - say_thanks
   - deny
+  - fake_police_call
+  - ask_why_called
+  - confused_user
 
 responses:
 
@@ -94,3 +97,12 @@ responses:
   utter_default:
     - text: "I'm not sure I understand that yet. Could you rephrase or ask another question related to cybercrime?"
 
+
+  utter_fake_police_call:
+    - text: "Scammers sometimes impersonate police to scare you. Never share any personal info. Real officers will never ask for OTPs or money on phone."
+
+  utter_ask_why_called:
+    - text: "This is likely a scam call. They aim to scare you into acting quickly. Don’t respond to threats. Stay calm and block the number."
+
+  utter_confused_user:
+    - text: "You're not alone. Many people feel the same. If you feel unsafe, talk to someone or call the cybercrime helpline 1930."

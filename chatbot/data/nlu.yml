@@ -10,6 +10,34 @@ nlu:
     - good evening
     - hey there
     - hi bot
+    version: "3.1"
+
+# 🚨 Intent: Fake Calls & Police Threats
+- intent: fake_police_call
+  examples: |
+    - I got a call from someone claiming to be a police
+    - They said I will be arrested
+    - Police called and threatened me
+    - Is this real? I’m scared
+    - I think a fake cop called me
+    - They said there is a case against me
+
+# ❓ Intent: Why They Called
+- intent: ask_why_called
+  examples: |
+    - Why did they call me?
+    - What do they want?
+    - Why are they threatening me?
+    - What’s the reason behind the call?
+
+# 🧠 Intent: General confusion or anxiety
+- intent: confused_user
+  examples: |
+    - I don’t understand what’s going on
+    - I’m scared
+    - What should I do now?
+    - I need help
+
 
 - intent: phishing_help
   examples: |

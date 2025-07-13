@@ -2,22 +2,24 @@ const chatForm = document.getElementById("chat-form");
 const userInput = document.getElementById("user-input");
 const chatBox = document.getElementById("chat-box");
 const fileInput = document.getElementById("file-upload");
+const micBtn = document.getElementById("mic-btn");
 const newChatBtn = document.getElementById("new-chat");
 const chatHistory = document.getElementById("chat-history");
 
 let currentChat = [];
 let chatList = [];
 
-function appendMessage(sender, message, isFile = false, fileBlob = null) {
+function appendMessage(sender, message, isFile = false) {
   const messageEl = document.createElement("div");
   messageEl.classList.add("message", sender);
 
-  if (isFile && fileBlob) {
-    const url = URL.createObjectURL(fileBlob);
-    if (/\.(jpeg|jpg|png|gif)$/i.test(message.name)) {
-      messageEl.innerHTML = `<strong>${sender}:</strong><br><img src="${url}" class="chat-img" alt="Image" />`;
+  if (isFile) {
+    const ext = message.split('.').pop().toLowerCase();
+    const fileUrl = `/uploads/${message}`;
+    if (["jpeg", "jpg", "png", "gif", "png"].includes(ext)) {
+      messageEl.innerHTML = `<strong>${sender}:</strong><br><img src="${fileUrl}" class="chat-img" alt="Image" />`;
     } else {
-      messageEl.innerHTML = `<strong>${sender}:</strong><br><a href="${url}" target="_blank">Download ${message.name}</a>`;
+      messageEl.innerHTML = `<strong>${sender}:</strong><br><a href="${fileUrl}" target="_blank">${message}</a>`;
     }
   } else {
     messageEl.innerHTML = `<strong>${sender}:</strong> ${message}`;
@@ -27,42 +29,55 @@ function appendMessage(sender, message, isFile = false, fileBlob = null) {
   chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-// 🔁 Send message to Rasa
 async function getBotReply(message) {
   try {
-    const res = await fetch("http://localhost:5005/webhooks/rest/webhook", {
+    const res = await fetch("/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ sender: "user", message }),
+      body: JSON.stringify({ message }),
     });
-
     const data = await res.json();
-    return data.map(d => d.text).join("\n");
+    return data.response;
   } catch (err) {
     console.error("Bot error:", err);
-    return "Sorry, I couldn't reach the server.";
+    return "⚠️ Server error. Try again later.";
   }
 }
 
-// 📤 File Upload + Preview
-function handleFileUpload(file) {
-  if (!file) return;
-  appendMessage("user", file, true, file);
-  currentChat.push({ sender: "user", content: file.name, isFile: true });
+async function handleFileUpload(file) {
+  const formData = new FormData();
+  formData.append("file", file);
+
+  try {
+    const res = await fetch("/upload", {
+      method: "POST",
+      body: formData,
+    });
+    const data = await res.json();
+    if (data.filename) {
+      appendMessage("you", data.filename, true);
+      currentChat.push({ sender: "you", content: data.filename, isFile: true });
+    }
+  } catch (err) {
+    console.error("File upload failed:", err);
+    appendMessage("bot", "❌ File upload failed.");
+  }
 }
 
-// 💬 Submit Handler
 chatForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const message = userInput.value.trim();
   const file = fileInput.files[0];
 
-  if (!message && !file) return;
+  if (file) {
+    await handleFileUpload(file);
+    fileInput.value = "";
+  }
 
   if (message) {
-    appendMessage("user", message);
-    currentChat.push({ sender: "user", content: message });
+    appendMessage("you", message);
+    currentChat.push({ sender: "you", content: message });
 
     const botReply = await getBotReply(message);
     appendMessage("bot", botReply);
@@ -70,14 +85,28 @@ chatForm.addEventListener("submit", async (e) => {
 
     userInput.value = "";
   }
-
-  if (file) {
-    handleFileUpload(file);
-    fileInput.value = "";
-  }
 });
 
-// ➕ New Chat Button
+micBtn.addEventListener("click", () => {
+  const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+  recognition.lang = "en-US";
+  recognition.interimResults = false;
+  recognition.maxAlternatives = 1;
+
+  recognition.start();
+
+  recognition.onresult = (event) => {
+    const transcript = event.results[0][0].transcript;
+    userInput.value = transcript;
+    userInput.focus();
+  };
+
+  recognition.onerror = (event) => {
+    console.error("Speech recognition error:", event.error);
+    alert("🎤 Mic not working or permission denied.");
+  };
+});
+
 newChatBtn.addEventListener("click", () => {
   if (currentChat.length > 0) {
     chatList.push(currentChat);
@@ -87,7 +116,6 @@ newChatBtn.addEventListener("click", () => {
   chatBox.innerHTML = "";
 });
 
-// 🕘 Chat History
 function addToChatHistory(chat) {
   const item = document.createElement("div");
   item.classList.add("history-item");
@@ -97,10 +125,6 @@ function addToChatHistory(chat) {
   del.className = "delete-icon";
   del.innerHTML = "❌";
   del.title = "Delete chat";
-  del.style.marginLeft = "10px";
-  del.style.cursor = "pointer";
-  del.style.color = "silver";
-
   del.onclick = (e) => {
     e.stopPropagation();
     item.remove();

@@ -101,7 +101,7 @@ body.dark {
   line-height: 1.4;
 }
 
-.user {
+.you {
   background-color: #005f73;
   align-self: flex-end;
   color: white;
@@ -122,6 +122,7 @@ body.dark {
 
 .chat-form {
   display: flex;
+  align-items: center;
   padding: 15px;
   background-color: #1f1f1f;
   border-top: 1px solid #333;
@@ -170,3 +171,24 @@ body.dark {
 .file-upload-label:hover {
   color: #00ffcc;
 }
+#mic-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0 8px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+#mic-btn img {
+  filter: brightness(0) saturate(100%) invert(86%) sepia(6%) saturate(0%) hue-rotate(317deg) brightness(98%) contrast(85%);
+  transition: transform 0.2s;
+  width: 17px;
+  height: 17px;
+}
+
+#mic-btn:hover img {
+  transform: scale(1.1);
+}
+
