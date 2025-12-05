@@ -47,12 +47,30 @@ Open the `index.html` file in any browser.
 
 ## Working Screenshots
 
-### Chat Interface
-![Chat Interface](screenshots/Screenshot%202025-12-05%20095523.png)
+### 🟦 Chat Interface
+<p align="center">
+  <img src="screenshots/Screenshot%202025-12-05%20095523.png" 
+       width="650" 
+       style="border: 2px solid #4CAF50; border-radius: 12px;">
+</p>
 
-### Mic Permission and File Upload Interface
-![Mic & File Options](screenshots/Screenshot%202025-12-05%20095716.png)
+---
 
+### 🎤 Mic Permission & File Upload Popup
+<p align="center">
+  <img src="screenshots/Screenshot%202025-12-05%20095716.png" 
+       width="650" 
+       style="border: 2px solid #4CAF50; border-radius: 12px;">
+</p>
+
+---
+
+### 📁 Chat History Sidebar
+<p align="center">
+  <img src="screenshots/Screenshot%202025-12-05%20102617.png" 
+       width="650" 
+       style="border: 2px solid #4CAF50; border-radius: 12px;">
+</p>
 
 
 
