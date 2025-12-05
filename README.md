@@ -50,6 +50,9 @@ Open the `index.html` file in any browser.
 ### Chat Interface
 ![Chat Interface](screenshots/Screenshot%202025-12-05%20095523.png)
 
+### Mic Permission and File Upload Interface
+![Mic & File Options](screenshots/Screenshot%202025-12-05%20095716.png)
+
 
 
 
